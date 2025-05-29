@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spend Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Spend Tracker</h1>
+
+    <form id="spendForm">
+      <label for="store">Store:</label>
+      <select id="store" required>
+        <option value="">Select a store</option>
+        <option value="Dischem">Dischem</option>
+        <option value="Woolworths">Woolworths</option>
+        <option value="Sasol">Sasol</option>
+        <option value="Baby City">Baby City</option>
+        <option value="Pick n Pay">Pick n Pay</option>
+        <option value="Food Lovers Market">Food Lovers Market</option>
+      </select>
+
+      <label for="amount">Amount (R):</label>
+      <input type="number" id="amount" step="0.01" required />
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" />
+
+      <button type="submit">Add Spend</button>
+    </form>
+
+    <div class="controls">
+      <button id="downloadCSV">Download CSV</button>
+      <input type="file" id="importCSV" accept=".csv" />
+	<button id="clearData">Clear Local Data</button>
+    </div>
+
+    <h2>Spend Summary</h2>
+    <p id="dateRangeDisplay"></p>
+    <div id="alerts"></div>
+    <div id="summary"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
