@@ -190,18 +190,20 @@ document.getElementById("importCSV").addEventListener("change", function (e) {
   reader.readAsText(file);
 });
 
-document.getElementById("clearData").addEventListener("click", () => {
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  const today = new Date().toISOString().split("T")[0];
+  document.getElementById("date").value = today;
+  displaySummary();
+  
+  document.getElementById("clearData").addEventListener("click", () => {
   if (confirm("Are you sure you want to clear all spend data? This cannot be undone.")) {
     localStorage.removeItem("spendData");
     displaySummary();
     alert("Spend data cleared.");
   }
 });
-
-window.addEventListener("DOMContentLoaded", () => {
-  const today = new Date().toISOString().split("T")[0];
-  document.getElementById("date").value = today;
-  displaySummary();
 
 
 });
