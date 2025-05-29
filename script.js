@@ -99,7 +99,20 @@ function displaySummary() {
         .join("")}
     </ul>
   `;
+  const cashbackEntries = Object.entries(groupTotals).map(([group, total]) => {
+  const cashback = total * 0.30;
+  return `<li><strong>${group} Cashback (30%):</strong> R${cashback.toFixed(2)}</li>`;
+});
 
+const totalCashback = Object.values(groupTotals).reduce((sum, val) => sum + val * 0.30, 0);
+
+summaryDiv.innerHTML += `
+  <h3>Cash Back Summary</h3>
+  <ul>
+    ${cashbackEntries.join("")}
+    <li><strong>Total Cashback Earned:</strong> R${totalCashback.toFixed(2)}</li>
+  </ul>
+`;
   displayAlerts(groupTotals);
 }
 
